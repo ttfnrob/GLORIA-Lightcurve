@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/jqplot.css">
+        <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="js/vendor/julian-gregorian.js"></script>
+        <script src="js/vendor/jquery-1.9.1.min.js"></script>
+        <script src="js/vendor/jquery-ui-1.10.3.custom.min.js"></script>
+        <script src="js/vendor/jquery.jqplot.min.js"></script>
+        <script src="js/vendor/regression.min.js"></script>
+        <script src="js/luiza.js"></script>
+
+        <script language="javascript" type="text/javascript" src="js/vendor/jqplot-plugins/jqplot.logAxisRenderer.js"></script>
+
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div id="loading"><img id="spinner" src="img/loader.gif" /></div>
+        
+        <div id="controls">
+            <div class="control">
+                <button id="big-minus"><<</button><button id="small-minus"><</button>
+                 Incremental adjustments <button id="small-plus">></button><button id="big-plus">>></button>
+                <br/>
+                <button id="d7">/7</button><button id="d5">/5</button><button id="d3">/3</button><button id="d2">/2</button> Fold period <button id="x2">x2</button><button id="x3">x3</button><button id="x5">x5</button><button id="x7">x7</button>
+                <br/>
+                <button id="estimatePeriod">Estimate Period Automatically</button>
+            </div>
+            <div class="control">
+                <p class="label">Period=<span id="period-display"></span> &middot; Phase=<span id="phase-display"></span></p>
+                <div class="slider" id="period-slider"></div>
+            </div>
+        </div>
+        <div id="chart-wrapper">
+            <div id="chart"></div>
+            <div class="slider" id="phase-slider"></div>
+        </div>
+
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+
+                if (getURLParameter("sim")){
+                    plotIt(999,999);
+                } else {
+                    if (getURLParameter("ra")&&getURLParameter("dec")){
+                        window.ra = getURLParameter("ra");
+                        window.dec = getURLParameter("dec");
+                        plotIt(window.ra,window.dec);
+                    } else {
+                        alert("Need ?ra=XXX&dec=YYY params or ?sim=true");
+                    }
+                }
+            });
+        </script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <!-- <script>
+            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src='//www.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script> -->
+    </body>
+</html>
