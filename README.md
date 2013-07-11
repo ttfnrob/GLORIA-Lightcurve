@@ -1,5 +1,7 @@
 # GLORIA Lightcurve
 
+## [Live demo](http://gloria-dev.s3.amazonaws.com/lightcurve/luiza/index.html?sim=true)
+
 ## Using this App
 
 index.html requires params to work, either
