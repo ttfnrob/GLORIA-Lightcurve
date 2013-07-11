@@ -2,6 +2,8 @@
 
 ## [Live demo](http://gloria-dev.s3.amazonaws.com/lightcurve/luiza/index.html?sim=true)
 
+You might want to keep the console open to see what it's doing when you run this demo.
+
 ## Using this App
 
 index.html requires params to work, either
